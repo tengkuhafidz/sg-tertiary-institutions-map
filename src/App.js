@@ -79,7 +79,6 @@ class App extends React.Component {
     };
 
     onMarkerActivated = (props, marker, e) =>{
-        console.log('onMarkerActivated', props)
         this.setState({ nearbyAttractions: null });
 
         this.setState({
@@ -87,7 +86,6 @@ class App extends React.Component {
             activeMarker: marker,
             showingInfoWindow: true
         }, () => {
-            console.log('onMarkerActivated state', this.state.selectedPlace.position.lat)
             this.getRecommendedNearby()
         });
 
@@ -105,7 +103,6 @@ class App extends React.Component {
         fetch(foursquareApiUrl)
             .then((resp) => resp.json())
             .then((data) => {
-                console.log('response.data.response.groups.items', data.response.groups[0].items.slice(0,3) )
                 this.setState({ nearbyAttractions: data.response.groups[0].items.slice(0,3) });
             })
             .catch(function(error) {

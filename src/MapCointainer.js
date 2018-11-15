@@ -20,7 +20,6 @@ const styles = theme => ({
 export class MapContainer extends Component {
 
     renderMarkers = (institutions) => {
-        console.log('this.props.selectedPlace', this.props.selectedPlace)
         return institutions.map(institution => (
             <Marker
                 key={institution.name}
